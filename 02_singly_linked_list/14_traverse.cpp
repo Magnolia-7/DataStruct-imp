@@ -1,8 +1,12 @@
+#include "../common.h"
+#include "singlylink.h"
 // Task 14: traverse.
 // TODO: Implement this exercise yourself.
 
-int main()
-{
-    // TODO: Add examples and boundary checks.
-    return 0;
+void TraverseList(LinkList L){
+    LNode *p = L->next;
+    while (p){
+        std::cout << p->data << std::endl;
+        p = p->next;
+    }
 }
