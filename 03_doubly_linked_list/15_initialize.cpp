@@ -1,8 +1,12 @@
+#include "../common.h"
+#include "doublylink.h"
 // Task 15: initialize.
 // TODO: Implement this exercise yourself.
 
-int main()
-{
-    // TODO: Add examples and boundary checks.
-    return 0;
+bool InitDList(DLinkList &L){
+    L = new DLNode;
+    if(!L) return false;
+    L ->next = nullptr;
+    L->prior = nullptr;
+    return true;
 }
