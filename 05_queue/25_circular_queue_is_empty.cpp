@@ -1,8 +1,12 @@
+#include "../common.h"
+#include "queue.h"
 // Task 25: circular queue is empty.
 // TODO: Implement this exercise yourself.
 
-int main()
-{
-    // TODO: Add examples and boundary checks.
-    return 0;
+bool IsEmpty(SqQueue Q){
+    if(Q.front == Q.rear) 
+        return true;
+    else{
+        return false;
+    }
 }
