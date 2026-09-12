@@ -1,8 +1,13 @@
+#include "../common.h"
+#include "stack.h"
 // Task 23: linked stack pop.
 // TODO: Implement this exercise yourself.
 
-int main()
-{
-    // TODO: Add examples and boundary checks.
-    return 0;
+bool Pop(LinkStack &S, ElemType &e){
+    if(!S) return false;
+    StackNode *q = S;
+    e = S->data;
+    S = S->next;
+    delete q;
+    return true;
 }
