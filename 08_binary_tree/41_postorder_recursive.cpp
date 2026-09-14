@@ -1,8 +1,10 @@
-// Task 41: postorder recursive.
-// TODO: Implement this exercise yourself.
+#include "bt.h"
+using namespace std;
 
-int main()
-{
-    // TODO: Add examples and boundary checks.
-    return 0;
+void PostOrder(BiTree T){
+    if(!T){
+        PreOrder(T->lchild);
+        PreOrder(T->rchild);
+        cout << T->data << endl;
+    }
 }

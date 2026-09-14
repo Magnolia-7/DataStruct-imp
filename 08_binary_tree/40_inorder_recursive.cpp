@@ -1,8 +1,11 @@
-// Task 40: inorder recursive.
-// TODO: Implement this exercise yourself.
+#include "bt.h"
+using namespace std;
 
-int main()
-{
-    // TODO: Add examples and boundary checks.
-    return 0;
+
+void InOrder(BiTree T){
+    if(!T){
+        PreOrder(T->lchild);
+        cout << T->data << endl;
+        PreOrder(T->rchild);
+    }
 }
