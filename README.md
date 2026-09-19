@@ -4,11 +4,11 @@
 
 ## 练习约定
 
-- 每个 `.cpp` 是一个独立练习，包含自己的 `main()`。
-- 当前只有入口和 TODO 注释，没有题目实现，所有任务均未完成。
+- 每个 `.cpp` 只编写该题的数据结构和函数，不要求包含 `main()`。
+- 未实现的练习保留公共头文件引用和 TODO 注释。
 - 由学习者独立实现，助手负责指导、检查和必要补充。
-- 在每题的 `main()` 中添加正常情况和边界情况验证。
-- 多个练习分别编译，不合并到同一个可执行程序。
+- 需要运行验证时，另写测试入口，检查正常情况和边界情况。
+- 多个练习分别编译为目标文件，当前不生成可执行程序。
 
 ## 学习阶段
 
@@ -17,24 +17,23 @@
 - 59～60：必须熟练。
 - 完成后再补充进阶任务。
 
-## 编译与运行
+## 编译检查
 
 项目默认使用 C++17。安装 CMake 和 C++ 编译器后，在项目根目录运行：
 
 ```sh
 cmake -S . -B build
 cmake --build build --target task_01
-./build/task_01
 ```
 
 将 `task_01` 换成其他任务编号即可编译相应练习。也可以直接编译单个文件：
 
 ```sh
-c++ -std=c++17 01_sequential_list/01_initialize.cpp -o /tmp/datastruct_task_01
-/tmp/datastruct_task_01
+c++ -std=c++17 -Wall -Wextra -fsyntax-only 01_sequential_list/01_initialize.cpp
 ```
 
-当前运行占位程序没有输出，也不代表题目已完成。
+没有 `main()` 的练习可以编译检查，但不能直接作为程序运行。
+编译通过只说明通过编译检查，不代表算法正确或题目已经完成。
 
 ## 进度
 
@@ -98,3 +97,21 @@ c++ -std=c++17 01_sequential_list/01_initialize.cpp -o /tmp/datastruct_task_01
 - [ ] 58. [bst_search_and_insert](11_search/58_bst_search_and_insert.cpp)
 - [ ] 59. [quick_sort](12_sort/59_quick_sort.cpp)
 - [ ] 60. [merge_sort](12_sort/60_merge_sort.cpp)
+
+## 公共定义
+
+根目录的 `common.h` 集中提供 `<cstdio>`、`<iostream>`、容量常量
+`MAXSIZE` 和元素类型别名 `ElemType`。所有练习已通过下面这行引用：
+
+```cpp
+#include "../common.h"
+```
+
+`..` 表示练习目录的上一级，也就是项目根目录；单文件编译也可使用。
+`inline constexpr int MAXSIZE = 100;` 定义 C++17 的常量，
+`using ElemType = int;` 等价于 `typedef int ElemType;`。
+头文件中的 include guard 防止同一次编译中被重复包含。
+
+公共头文件不写 `using namespace std;`，使用 `std::cout`、`std::cin` 等名称。
+如果练习时希望省略 `std::`，可以在该 `.cpp` 的 include 后自行写
+`using namespace std;`。仅个别题目需要的头文件仍放在对应 `.cpp` 中。

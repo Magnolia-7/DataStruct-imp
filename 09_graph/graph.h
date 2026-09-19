@@ -39,4 +39,6 @@ void DFS(AMGraph G, int v);
 void DFS(ALGraph G, int v);
 void BFS(AMGraph G, int v);
 void BFS(ALGraph G, int v);
+int LocateVex(AMGraph G, VerTexType V);
+int LocateVex(ALGraph G, VerTexType V);
 #endif
