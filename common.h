@@ -7,4 +7,5 @@
 inline constexpr int MAXSIZE = 100;
 using ElemType = int;
 
+
 #endif // DATASTRUCT_COMMON_H
